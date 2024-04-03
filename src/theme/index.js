@@ -1,5 +1,5 @@
 const colors = {
-    dark: "#17161a",
+    dark: "#17 161a",
     incognito: "#333",
     white: "#fff",
     background_white: "#f5f5f7",
@@ -58,15 +58,7 @@ const borderRadius = {
     extraRound: "15px",
     circle: "50%",
 };
-
-const shadows = {
-    subtle: "0px -6px 8px -2px rgba(0, 0, 0, 0.1)",
-    medium: "-8px 8px 20px 0px rgb(0 0 0 / 20%)",
-    strong: "0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset",
-    blueHighlight: "0 0 12px 0 rgb(122 180 184 / 100%)",
-    basket: "inset 0px 0px 20px rgba(0, 0, 0, 0.2)",
-    cardBasket: "-4px 4px 15px 0 rgb(0 0 0 / 20%)",
-};
+const shadows = {};
 
 export const theme = {
     colors,
