@@ -1,24 +1,17 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import ErrorPage from "./components/pages/error/ErrorPage";
+import  LoginPage  from "./components/pages/login/LoginPage";
+import  OrderPage  from "./components/pages/order/OrderPage";
 
 function App() {
-  const name = localStorage.getItem('name');
-
-  return (
-    <Router>
-      <Switch>
-        <Route exact path="/">
-          {name ? <Redirect to="components/pages/order" /> : <LoginPage />}
-        </Route>
-        <Route path="components/pages/order">
-          {name ? <OrderPage /> : <Redirect to="/" />}
-        </Route>
-        <Route>
-          <ErrorPage />
-        </Route>
-      </Switch>
-    </Router>
-  );
+    return (
+        <Routes>
+            <Route path="/" element={<LoginPage />} />
+            <Route path="/order/:username" element={<OrderPage />} />
+            <Route path="/*" element={<ErrorPage />} />
+        </Routes>
+    );
 }
 
 export default App;

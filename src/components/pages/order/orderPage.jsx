@@ -1,18 +1,16 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
-function OrderPage() {
-    const name = localStorage.getItem('name');
-  
-    const handleLogout = () => {
-      localStorage.removeItem('name');
-    };
-  
+
+export default function OrderPage(props) {
+    const {username} = useParams();
+
     return (
-      <div>
-        <h1>Bonjour {name}</h1>
-        <button onClick={handleLogout}>Déconnexion</button>
-      </div>
+        <div>
+            <h1>Bonjour {username}</h1>
+            <Link to={"/"}>
+                <button>Déconnexion</button>
+            </Link>
+        </div>
     );
-  }
-  
+}
