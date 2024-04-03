@@ -1,36 +1,23 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
 function App() {
-  const [name, setName] = useState('');
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (name === '') {
-      alert('Le champ est obligatoire');
-    } else {
-      alert(`Bonjour ${name}`);
-      setName('');
-    }
-  };
+  const name = localStorage.getItem('name');
 
   return (
-    <>
-      <h1>Bienvenue chez nous</h1>
-      <hr/>
-      <h1>Connectez vous</h1>
-      
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Entrez votre prénom..."
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <br />
-        <br />
-        <button type="submit">Accéder à votre espace</button>
-      </form>
-    </>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          {name ? <Redirect to="components/pages/order" /> : <LoginPage />}
+        </Route>
+        <Route path="components/pages/order">
+          {name ? <OrderPage /> : <Redirect to="/" />}
+        </Route>
+        <Route>
+          <ErrorPage />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
