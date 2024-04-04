@@ -1,25 +1,26 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import ErrorPage from "./components/pages/error/ErrorPage";
-import LoginPage from "./components/pages/login/LoginPage";
-import OrderPage from "./components/pages/order/OrderPage";
+import ErrorPage from "./components/pages/error/errorPage";
+import LoginPage from "./components/pages/login/loginPage";
+import OrderPage from "./components/pages/order/orderPage";
 import styled from 'styled-components';
 
 
 const AppStyled = styled.div`
-  background-color: #5acaca;
+    margin: 2em 2em 0 2em;
+    max-height: 80vh;
 
 `;
 
 function App() {
     return (
-        // <AppStyled>
+         <AppStyled>
             <Routes>
                 <Route path="/" element={<LoginPage />} />
                 <Route path="/order/:username" element={<OrderPage />} />
                 <Route path="/*" element={<ErrorPage />} />
             </Routes>
-        // </AppStyled>
+         </AppStyled>
     );
 }
 

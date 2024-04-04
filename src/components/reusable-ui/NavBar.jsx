@@ -8,6 +8,8 @@ const NavbarStyled = styled.nav`
   justify-content: space-between;
   padding: 1em 1em 1em 1em; 
   background-color: #f8f9fa;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 
   .left {
     align-self: flex-start;
