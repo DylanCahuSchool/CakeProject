@@ -1,8 +1,8 @@
 import Logo from "../../reusable-ui/Logo";
-import LoginForm from "./LoginForm";
+import LoginForm from "./loginForm";
 import styled from "styled-components";
 
-export default function LoginPage() {
+export default function loginPage() {
     return (
         <LoginPageStyled>
             <Logo />

@@ -26,8 +26,8 @@ const styles = {
         fontSize: '16px',
         margin: '4px 2px',
         cursor: 'pointer',
-        borderRadius: '12px', // Add rounded corners to the button
-        border: 'none', // Remove the border from the button
+        borderRadius: '12px', 
+        border: 'none', 
     },
     bottomRow: {
         display: 'flex',
