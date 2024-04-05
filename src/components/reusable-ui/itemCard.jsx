@@ -30,6 +30,7 @@ const styles = {
         border: 'none', 
     },
     bottomRow: {
+        textoverflow : 'ellipsis',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',

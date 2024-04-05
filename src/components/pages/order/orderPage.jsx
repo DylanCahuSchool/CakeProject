@@ -4,10 +4,9 @@ import NavBar from "../../reusable-ui/NavBar";
 import ItemCard from "../../reusable-ui/itemCard";
 import { fakeMenu } from "../../../fakeData/fakeMenu";
 
-
 const OrderStyled = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     grid-gap: 60px;
     justify-items: center;
     padding: 50px;
@@ -15,25 +14,27 @@ const OrderStyled = styled.div`
     box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
-    overflow: scroll;
+    overflow-y: scroll;
     overflow-x: hidden;
     max-height: 73vh;
     
-    ::-webkit-scrollbar {
-        width: 10px;
+   /* // scroll bar custom
+    &:-webkit-scrollbar {
+        width: 5px;
     }
 
-    ::-webkit-scrollbar-track {
-        background: transparent; 
-    }
-
-    ::-webkit-scrollbar-thumb {
+    &:-webkit-scrollbar-track {
         background: transparent;
     }
 
-    ::-webkit-scrollbar-thumb:hover {
-        background: #555; 
+    &:-webkit-scrollbar-thumb {
+        background: var(--accent1);
+        border-radius: 10px;
     }
+
+    &:-webkit-scrollbar-thumb:hover {
+        background: var(--accent1-gradient);
+    } */
 
   ::before {
     content: "";
@@ -45,8 +46,6 @@ const OrderStyled = styled.div`
     z-index: -1;
     background-color: #5acaca;
   }
-
-
 
 `;
 
