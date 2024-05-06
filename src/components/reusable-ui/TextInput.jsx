@@ -3,7 +3,6 @@ import { theme } from '../../theme';
 
 export default function TextInput({ value, onChange, Icon, ...restProps }) {
 
-    
     return (
         <InputStyled>
             {Icon && Icon}

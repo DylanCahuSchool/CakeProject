@@ -20,15 +20,23 @@ export default function LoginForm() {
     const handlechange = (e) => {
         setInputValue(e.target.value);
     };
-
+    
     return (
         <LoginFormStyled onSubmit={handleSubmit}>
             <h1>Bienvenue chez nous !</h1>
             <hr />
             <h2>Connectez-vous</h2>
-            <TextInput value={inputValue} onChange={handlechange} placeholder={"Entrez votre prénom"} required Icon={<BsPersonCircle className="icon" />} />
+            <TextInput 
+                value={inputValue} 
+                onChange={handlechange} 
+                placeholder={"Entrez votre prénom"} 
+                required 
+                Icon={<BsPersonCircle className="icon" />} 
+            />
 
-            <PrimaryButton Icon={<IoChevronForward className="icon"/>} label={"Mon espace"}/>
+            <PrimaryButton 
+                Icon={<IoChevronForward className="icon"/>} 
+                label={"Mon espace"}/>
         </LoginFormStyled>
     );
 }

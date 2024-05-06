@@ -1,4 +1,4 @@
-export const fakeSmallMenu = [ // pour tests
+export const fakeMenu1 = [
   {
     id: 1,
     imageSource: "/images/cupcake-item.png",
@@ -19,7 +19,7 @@ export const fakeSmallMenu = [ // pour tests
   },
 ]
 
-export const fakeMenu = [
+export const fakeMenu2 = [
   {
     id: 1,
     imageSource: "/images/cupcake-item.png",
