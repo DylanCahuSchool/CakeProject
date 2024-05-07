@@ -1,44 +1,75 @@
-import styled from 'styled-components';
-import { theme } from '../../theme';
+import styled, { css } from "styled-components"
+import { theme } from "../../theme"
 
-export default function TextInput({ value, onChange, Icon, ...restProps }) {
-
-    return (
-        <InputStyled>
-            {Icon && Icon}
-            <input value={value} onChange={onChange} type="text" {...restProps}/>
-        </InputStyled>
-    );
+export default function TextInput({
+  onChange,
+  Icon,
+  className,
+  version = "normal",
+  ...restProps
+}) {
+  return (
+    <TextInputStyled className={className} version={version}>
+      <div className="icon">{Icon && Icon}</div>
+      <input onChange={onChange} type="text" {...restProps} />
+    </TextInputStyled>
+  )
 }
 
-const InputStyled = styled.div`
-        background: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: ${theme.borderRadius.round};
-        margin: 18px 0;
-        padding: 18px 24px;
-        white-space: nowrap;
-        width: 100%;
+const TextInputStyled = styled.div`
+  border-radius: ${theme.borderRadius.round};
+  display: flex;
+  align-items: center;
 
-    .icon {
-        color: ${theme.colors.greySemiDark};
-        margin: 0 8px;
-        font-size: ${theme.fonts.size.P0};
-        min-width: 1em;
-    }
-    
-    input {
-        border: none;
-        font-size: ${theme.fonts.size.P0};
-        width: 100%;
-        display: flex;
-        color: ${theme.colors.dark};
-        &::placeholder {
-            background-color: ${theme.colors.white};
-            color: ${theme.colors.greyMedium};
-        }
-    }
+  .icon {
+    font-size: ${theme.fonts.size.SM};
+    margin: 0 13px 0 8px;
+    display: flex; 
+  }
 
-`;
+  input {
+    border: none;
+    font-size: ${theme.fonts.size.SM};
+    width: 100%;
+
+    &::placeholder {
+      color: ${theme.colors.greyMedium};
+    }
+  }
+
+  ${({ version }) => lifeStyle[version]}
+`
+
+const lifeStyleNormal = css`
+  background-color: ${theme.colors.white};
+  padding: 18px 28px;
+  color: ${theme.colors.greySemiDark};
+
+  input {
+    color: ${theme.colors.dark};
+
+    &::placeholder {
+      background: ${theme.colors.white};
+    }
+  }
+`
+
+const lifeStyleMinimalist = css`
+  background-color: ${theme.colors.background_white};
+  padding: 8px 16px;
+  color: ${theme.colors.greyBlue};
+
+  input {
+    background: ${theme.colors.background_white};
+    color: ${theme.colors.dark};
+
+    &:focus {
+      outline: 0; 
+    }
+  }
+`
+
+const lifeStyle = {
+  primary: lifeStyleNormal,
+  minimalist: lifeStyleMinimalist,
+}
