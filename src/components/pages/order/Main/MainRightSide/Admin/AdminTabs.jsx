@@ -5,6 +5,9 @@ import { theme } from "../../../../../../theme"
 import { useContext } from "react"
 import OrderContext from "../../../../../../context/OrderContext"
 import { tabsConfig } from "./tabsConfig"
+import AddProductForm from "./AddProduct/AddProductForm"
+import React from 'react';
+
 
 export default function AdminTabs() {
   const { isCollapsed, setIsCollapsed, currentTabSelected, setCurrentTabSelected } =
@@ -36,6 +39,7 @@ export default function AdminTabs() {
           className={currentTabSelected === tab.index ? "is-active" : ""}
         />
       ))}
+      {currentTabSelected === 'add' && <AddProductForm />}
     </AdminTabsStyled>
   )
 }
