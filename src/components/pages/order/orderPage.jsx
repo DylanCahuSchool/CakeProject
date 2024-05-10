@@ -6,6 +6,7 @@ import Navbar from "./Navbar/Navbar"
 import OrderContext from "../../../context/OrderContext"
 import { fakeMenu2 } from "../../../fakeData/fakeMenu"
 import { EMPTY_PRODUCT } from "./Main/MainRightSide/Admin/AdminPanel/AddForm"
+import Cart from './Main/Cart/Cart';
 
 export default function OrderPage() {
   const [isModeAdmin, setIsModeAdmin] = useState(false)
@@ -16,6 +17,13 @@ export default function OrderPage() {
   const [selectedUpdateProduct, setSelectedUpdateProduct] = useState(null);
   const [cart, setCart] = useState([]);
 
+
+const addToCart = (id) => {
+  const productToAdd = menu.find(product => product.id === id);
+  if (productToAdd) {
+    setCart(prevCart => [...prevCart, productToAdd]);
+  }
+}
 
   const handleAdd = (newProduct) => {
     const menuCopy = [...menu]
@@ -59,7 +67,7 @@ export default function OrderPage() {
 
   const handleCartAdd = (id) => {
     console.log(id);
-    // Perform other actions here
+    addToCart(id)
   }
 
 
@@ -100,6 +108,7 @@ export default function OrderPage() {
         <div className="container">
           <Navbar />
           <Main />
+          <Cart />
         </div>
       </OrderPageStyled>
     </OrderContext.Provider>
