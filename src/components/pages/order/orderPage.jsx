@@ -13,6 +13,8 @@ export default function OrderPage() {
   const [currentTabSelected, setCurrentTabSelected] = useState("add")
   const [menu, setMenu] = useState(fakeMenu2)
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT)
+  const [selectedUpdateProduct, setSelectedUpdateProduct] = useState(null);
+
 
   const handleAdd = (newProduct) => {
     const menuCopy = [...menu]
@@ -34,6 +36,25 @@ export default function OrderPage() {
     setMenu(fakeMenu2)
   }
 
+  const handleUpdate = (idOfProductToUpdate, updatedProduct) => {
+    const menuCopy = [...menu]
+
+    const menuUpdated = menuCopy.map((product) =>
+      product.id === idOfProductToUpdate ? updatedProduct : product
+    )
+
+    setMenu(menuUpdated)
+  }
+
+  const handleCardClick = (idOfProductToUpdate) => {  if (isModeAdmin) {
+    console.log("Update : " +  idOfProductToUpdate);
+    setSelectedUpdateProduct(idOfProductToUpdate);
+    setCurrentTabSelected("edit");
+  } else {
+    console.log(idOfProductToUpdate);
+    // Perform other actions here
+  }  }
+
   const orderContextValue = {
     isModeAdmin,
     setIsModeAdmin,
@@ -47,6 +68,9 @@ export default function OrderPage() {
     resetMenu,
     newProduct,
     setNewProduct,
+    handleUpdate,    
+    selectedUpdateProduct,
+    handleCardClick,
   }
 
   return (

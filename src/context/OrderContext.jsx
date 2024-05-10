@@ -13,6 +13,7 @@ export default createContext({
   order: [],
   handleAdd: () => {},
   handleDelete: () => {},
+  handleUpdate: () => {},
   resetOrder: () => {},
 
   newProduct: [],
