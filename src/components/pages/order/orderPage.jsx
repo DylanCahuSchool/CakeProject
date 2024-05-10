@@ -14,6 +14,7 @@ export default function OrderPage() {
   const [menu, setMenu] = useState(fakeMenu2)
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT)
   const [selectedUpdateProduct, setSelectedUpdateProduct] = useState(null);
+  const [cart, setCart] = useState([]);
 
 
   const handleAdd = (newProduct) => {
@@ -46,14 +47,30 @@ export default function OrderPage() {
     setMenu(menuUpdated)
   }
 
-  const handleCardClick = (idOfProductToUpdate) => {  if (isModeAdmin) {
-    console.log("Update : " +  idOfProductToUpdate);
-    setSelectedUpdateProduct(idOfProductToUpdate);
-    setCurrentTabSelected("edit");
-  } else {
-    console.log(idOfProductToUpdate);
+  const handleCardClick = (idOfProductToUpdate) => {
+    if (isModeAdmin) {
+      console.log("Update : " + idOfProductToUpdate);
+      setSelectedUpdateProduct(idOfProductToUpdate);
+      setCurrentTabSelected("edit");
+    } else {
+
+    }
+  }
+
+  const handleCartAdd = (id) => {
+    console.log(id);
     // Perform other actions here
-  }  }
+  }
+
+
+
+  const removeFromCart = (itemId) => {
+    setCart(cart.filter(item => item.id !== itemId));
+  };
+
+  const resetCart = () => {
+    setCart([]);
+  };
 
   const orderContextValue = {
     isModeAdmin,
@@ -68,9 +85,13 @@ export default function OrderPage() {
     resetMenu,
     newProduct,
     setNewProduct,
-    handleUpdate,    
+    handleUpdate,
     selectedUpdateProduct,
     handleCardClick,
+    handleCartAdd,
+    cart,
+    removeFromCart,
+    resetCart,
   }
 
   return (

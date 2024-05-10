@@ -6,7 +6,7 @@ import OrderContext from '../../context/OrderContext';
 import React, { useContext } from 'react';
 
 
-export default function Card({ title, imageSource, leftDescription, hasDeleteButton, onDelete, onCardClick}) {
+export default function Card({ title, imageSource, leftDescription, hasDeleteButton, onDelete, onCardClick, addToCart}) {
   const { isModeAdmin} = useContext(OrderContext);
 
   return (
@@ -25,7 +25,7 @@ export default function Card({ title, imageSource, leftDescription, hasDeleteBut
         <div className="description">
           <div className="left-description">{leftDescription}</div>
           <div className="right-description">
-            <Button className="primary-button" label={"Ajouter"} />
+            <Button className="primary-button" label={"Ajouter"} onClick={addToCart}/>
           </div>
         </div>
       </div>

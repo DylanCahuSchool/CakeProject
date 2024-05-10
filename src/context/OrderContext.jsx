@@ -21,4 +21,9 @@ export default createContext({
 
   selectedUpdateProduct: [],
   setSelectedUpdateProduct: () => {},
+
+  cart: [],
+  addToCart: () => {},
+  removeFromCart: () => {},
+  resetCart: () => {},
 })

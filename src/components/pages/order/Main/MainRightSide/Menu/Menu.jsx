@@ -10,7 +10,7 @@ import EmptyMenuClient from "./EmptyMenuClient"
 const IMAGE_BY_DEFAULT = "/images/cupcake-item.png";
 
 export default function Menu() {
-  const { menu, isModeAdmin, handleDelete, resetMenu, handleCardClick } = useContext(OrderContext);
+  const { menu, isModeAdmin, handleDelete, resetMenu, handleCardClick, handleCartAdd } = useContext(OrderContext);
 
   if (menu.length === 0) {
     if (!isModeAdmin) return <EmptyMenuClient />
@@ -29,6 +29,7 @@ export default function Menu() {
             hasDeleteButton={isModeAdmin}
             onDelete={() => handleDelete(id)}
             onCardClick={() => { handleCardClick(id)}}
+            addToCart={() => { handleCartAdd(id)}} 
           />
         )
       })}
